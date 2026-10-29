@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher Barischoff — Creative Supervisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-page: #FAFAFA;
+      --bg-card: #F3F3F5;
+      --bg-card-subtle: #E9E9EE;
+      --bg-matte-well: #E8E8ED;
+      --bg-pill: #E4E4E9;
+      --bg-pill-active: #18181B;
+      --text-pill-active: #FAFAFA;
+      --ink-primary: #18181B;
+      --ink-secondary: #3F3F46;
+      --ink-muted: #71717A;
+      --rule-subtle: #E2E2E7;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-card: 14px;
+      --radius-img: 9px;
+
+      /* Soft floating card elevation */
+      --shadow-card:
+        0 12px 32px -10px rgba(24, 24, 27, 0.07),
+        0 3px 8px -2px rgba(24, 24, 27, 0.04),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+      --border-card: 1px solid rgba(24, 24, 27, 0.06);
+
+      /* Recessed archival window-matte inner shadow for logos & artwork */
+      --shadow-matte-inset:
+        inset 0 2px 5px rgba(24, 24, 27, 0.11),
+        inset 0 0 0 1px rgba(24, 24, 27, 0.07),
+        0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #111113;
+      --bg-card: #19191D;
+      --bg-card-subtle: #222228;
+      --bg-matte-well: #141417;
+      --bg-pill: #25252C;
+      --bg-pill-active: #F4F4F5;
+      --text-pill-active: #111113;
+      --ink-primary: #F4F4F5;
+      --ink-secondary: #D4D4D8;
+      --ink-muted: #A1A1AA;
+      --rule-subtle: #27272C;
+
+      --shadow-card:
+        0 16px 38px -10px rgba(0, 0, 0, 0.55),
+        0 4px 10px -2px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+      --border-card: 1px solid rgba(255, 255, 255, 0.06);
+
+      --shadow-matte-inset:
+        inset 0 2px 6px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--ink-primary);
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ==========================================
+       WHISPER-QUIET TOP NAVIGATION
+       ========================================== */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg-page) 88%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.9rem 2rem;
+    }
+
+    .top-nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink-primary);
+    }
+
+    .nav-utilities {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn {
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background: var(--bg-card);
+      border: var(--border-card);
+      box-shadow: 0 2px 6px rgba(24, 24, 27, 0.04);
+      padding: 0.42rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--bg-pill);
+      color: var(--ink-primary);
+    }
+
+    /* ==========================================
+       PAGE CONTAINER
+       ========================================== */
+    .page-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    /* ==========================================
+       HEADER / IDENTITY
+       ========================================== */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .profile-text {
+      flex: 1;
+    }
+
+    .profile-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5vw, 3.75rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      color: var(--ink-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .profile-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin-bottom: 1.1rem;
+    }
+
+    .profile-contact {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1.1rem;
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+    }
+
+    .profile-contact a {
+      color: var(--ink-secondary);
+      border-bottom: 1px solid var(--rule-subtle);
+      padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .profile-contact a:hover {
+      color: var(--ink-primary);
+      border-color: var(--ink-primary);
+    }
+
+    .region-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+      margin-left: 0.15rem;
+    }
+
+    .contact-sep {
+      color: var(--rule-subtle);
+      user-select: none;
+    }
+
+    /* Recessed Matte Portrait Frame */
+    .profile-portrait-matte {
+      padding: 7px;
+      background: var(--bg-matte-well);
+      border-radius: calc(var(--radius-card) + 2px);
+      box-shadow: var(--shadow-matte-inset);
+      flex-shrink: 0;
+    }
+
+    .profile-portrait {
+      width: 144px;
+      height: 180px;
+      border-radius: var(--radius-img);
+      overflow: hidden;
+      background: var(--bg-card);
+      cursor: zoom-in;
+    }
+
+    .profile-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .profile-portrait:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ==========================================
+       ELEVATED CARDS & RECESSED MATTES
+       ========================================== */
+    .intro-card,
+    .studio-card,
+    .educator-card,
+    .freelance-card,
+    .awards-card,
+    .education-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      border: var(--border-card);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* Recessed Matte Well for Artwork & Logos */
+    .matte-well {
+      padding: 6px;
+      background: var(--bg-matte-well);
+      border-radius: calc(var(--radius-img) + 3px);
+      box-shadow: var(--shadow-matte-inset);
+    }
+
+    /* ==========================================
+       INTRO NARRATIVE CARD
+       ========================================== */
+    .intro-card {
+      padding: clamp(1.75rem, 4vw, 3rem);
+      margin-bottom: 4.5rem;
+    }
+
+    .intro-prose {
+      max-width: 78ch;
+      margin: 0 auto;
+    }
+
+    .intro-prose p {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      line-height: 1.78;
+      color: var(--ink-secondary);
+      margin-bottom: 1.35rem;
+    }
+
+    .intro-prose p.intro-lead {
+      font-size: 1.34rem;
+      line-height: 1.62;
+      color: var(--ink-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-prose em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--ink-primary);
+    }
+
+    .intro-footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .seeking-roles {
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+    }
+
+    .seeking-roles strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    .signoff {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.08rem;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================
+       SECTION HEADINGS
+       ========================================== */
+    .section-block {
+      margin-bottom: 4.5rem;
+      scroll-margin-top: 4.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      font-weight: 500;
+      color: var(--ink-primary);
+      letter-spacing: -0.015em;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ==========================================
+       WORK EXPERIENCE — SOFT MINIMAL CARDS
+       ========================================== */
+    .experience-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.85rem;
+    }
+
+    .studio-card {
+      padding: clamp(1.6rem, 3.5vw, 2.5rem);
+    }
+
+    .studio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .studio-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .studio-logo {
+      width: 98px;
+      height: 58px;
+      background: #FFFFFF;
+      border-radius: var(--radius-img);
+      box-shadow: var(--shadow-matte-inset);
+      padding: 0.45rem 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .studio-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .studio-title-block h3 {
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink-primary);
+    }
+
+    .studio-submeta {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      margin-top: 0.2rem;
+    }
+
+    .studio-role-pill {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      background: var(--bg-card-subtle);
+      box-shadow: inset 0 1px 2px rgba(24, 24, 27, 0.06);
+      padding: 0.42rem 0.9rem;
+      border-radius: 999px;
+    }
+
+    /* Meta details (Projects & Recognition) */
+    .studio-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem 2rem;
+      margin-bottom: 1.65rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule-subtle);
+    }
+
+    .detail-group-label {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 0.45rem;
+      display: block;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.93rem;
+      color: var(--ink-primary);
+    }
+
+    .detail-list li strong {
+      font-weight: 600;
+    }
+
+    .detail-list .format-tag {
+      color: var(--ink-muted);
+      font-weight: 400;
+    }
+
+    /* Side-by-side content + artwork */
+    .studio-content-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.85fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    .studio-Description p {
+      font-size: 0.98rem;
+      line-height: 1.76;
+      color: var(--ink-secondary);
+      margin-bottom: 1.15rem;
+    }
+
+    .studio-Description p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Balanced Artwork Column inside Recessed Matte Wells */
+    .studio-art-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .art-thumb {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #141416;
+      cursor: zoom-in;
+    }
+
+    .art-thumb.light-surface {
+      background: #FFFFFF;
+    }
+
+    .art-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .art-thumb:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Compact multi-art layout for Flying Bark */
+    .art-gallery-fBP {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0.65rem;
+      align-items: stretch;
+    }
+
+    .art-gallery-fBP .art-poster-well {
+      display: flex;
+    }
+
+    .art-gallery-fBP .art-poster {
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0D1117;
+      cursor: zoom-in;
+      width: 100%;
+      display: flex;
+    }
+
+    .art-gallery-fBP .art-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .art-gallery-fBP .art-poster:hover img {
+      transform: scale(1.02);
+    }
+
+    .art-gallery-fBP .art-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .art-gallery-fBP .art-stack .matte-well {
+      flex: 1;
+      display: flex;
+    }
+
+    .art-gallery-fBP .art-stack .art-thumb {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem;
+      background: #000000;
+    }
+
+    .art-gallery-fBP .art-stack .art-thumb img {
+      max-height: 88px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    /* ==========================================
+       EDUCATOR EXPERIENCE — 2-COLUMN MINIMAL CARDS
+       ========================================== */
+    .educator-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .educator-card {
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .educator-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .educator-title-group h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.25;
+    }
+
+    .educator-period {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      margin-top: 0.15rem;
+    }
+
+    .educator-role {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      margin-top: 0.35rem;
+    }
+
+    .educator-badge {
+      width: 86px;
+      height: 56px;
+      background: #FFFFFF;
+      border-radius: var(--radius-img);
+      box-shadow: var(--shadow-matte-inset);
+      padding: 0.4rem 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .educator-badge img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .educator-description {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--ink-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .educator-modules {
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--rule-subtle);
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    .educator-modules strong {
+      color: var(--ink-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       FREELANCE EXPERIENCE — CLEAN FILTERABLE DIRECTORY
+       ========================================== */
+    .freelance-card {
+      padding: clamp(1.6rem, 3.5vw, 2.5rem);
+    }
+
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-tab {
+      font-family: var(--font-sans);
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background: var(--bg-pill);
+      border: none;
+      padding: 0.48rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .filter-tab:hover {
+      color: var(--ink-primary);
+    }
+
+    .filter-tab.active {
+      background: var(--bg-pill-active);
+      color: var(--text-pill-active);
+      box-shadow: 0 2px 8px rgba(24, 24, 27, 0.14);
+    }
+
+    .tab-count {
+      font-size: 0.74rem;
+      opacity: 0.7;
+    }
+
+    .freelance-grid {
+      column-count: 3;
+      column-gap: 2.25rem;
+    }
+
+    .freelance-studio {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 1.65rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule-subtle);
+    }
+
+    .freelance-studio.is-hidden {
+      display: none;
+    }
+
+    .freelance-studio h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.2;
+    }
+
+    .freelance-role {
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--ink-muted);
+      margin-top: 0.15rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .freelance-projects {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+    }
+
+    .freelance-projects li {
+      font-size: 0.87rem;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.65rem;
+    }
+
+    .freelance-projects li.is-hidden {
+      display: none;
+    }
+
+    .proj-name {
+      color: var(--ink-primary);
+      font-weight: 500;
+    }
+
+    .proj-type {
+      color: var(--ink-muted);
+      font-size: 0.8rem;
+    }
+
+    .proj-year {
+      color: var(--ink-muted);
+      font-size: 0.8rem;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================
+       AWARDS & RECOGNITION (FULL WIDTH)
+       + EDUCATION (COMPACT HORIZONTAL BANNER)
+       ========================================== */
+    .awards-card {
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      margin-bottom: 3rem;
+    }
+
+    .clean-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .clean-table th {
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      text-align: left;
+      padding: 0 1rem 0.75rem 0;
+      border-bottom: 1px solid var(--rule-subtle);
+    }
+
+    .clean-table td {
+      padding: 0.9rem 1rem 0.9rem 0;
+      border-bottom: 1px solid var(--rule-subtle);
+      font-size: 0.92rem;
+      color: var(--ink-secondary);
+      vertical-align: middle;
+    }
+
+    .clean-table tr:last-child td {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .clean-table td.col-project {
+      font-weight: 600;
+      color: var(--ink-primary);
+      white-space: nowrap;
+      width: 24%;
+    }
+
+    .clean-table td.col-result {
+      width: 14%;
+      white-space: nowrap;
+    }
+
+    .clean-table td.col-year {
+      font-variant-numeric: tabular-nums;
+      color: var(--ink-muted);
+      padding-right: 0;
+      text-align: right;
+      width: 8%;
+    }
+
+    .status-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .status-won {
+      background: var(--bg-pill-active);
+      color: var(--text-pill-active);
+    }
+
+    .status-nom {
+      background: var(--bg-pill);
+      color: var(--ink-muted);
+    }
+
+    /* Compact Horizontal Education Banner Card */
+    .education-card {
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .otis-logo-wrap {
+      background: #FFFFFF;
+      border-radius: var(--radius-img);
+      box-shadow: var(--shadow-matte-inset);
+      padding: 0.6rem 1rem;
+      height: 76px;
+      width: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .otis-logo-wrap img {
+      max-height: 60px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .edu-horizontal-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.3fr 1.4fr 0.7fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .edu-item-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-item-val {
+      font-family: var(--font-serif);
+      font-size: 1.28rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.2;
+    }
+
+    .edu-item-val-sans {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+    }
+
+    /* ==========================================
+       MINIMAL FOOTER
+       ========================================== */
+    .page-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    .page-footer a:hover {
+      color: var(--ink-primary);
+    }
+
+    /* ==========================================
+       LIGHTBOX MODAL
+       ========================================== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(12, 12, 14, 0.9);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 90vw;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 6px;
+      background: #FFFFFF;
+    }
+
+    .lightbox-caption {
+      font-size: 0.84rem;
+      color: #D4D4D8;
+      text-align: center;
+    }
+
+    /* ==========================================
+       RESPONSIVE BREAKPOINTS (SCREEN ONLY)
+       ========================================== */
+    @media screen and (max-width: 900px) {
+      .studio-content-grid,
+      .educator-grid {
+        grid-template-columns: 1fr;
+      }
+      .freelance-grid {
+        column-count: 2;
+      }
+      .edu-horizontal-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .page-container {
+        padding: 1.25rem 1.15rem 3.5rem;
+      }
+      .top-nav {
+        padding: 0.75rem 1.15rem;
+      }
+      .profile-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+      .freelance-grid {
+        column-count: 1;
+      }
+      .education-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+      .edu-horizontal-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+        width: 100%;
+      }
+      .clean-table td.col-project {
+        white-space: normal;
+      }
+    }
+
+    /* ==========================================
+       A4 & US LETTER STRUCTURED PRINT STYLESHEET
+       ========================================== */
+    @page {
+      size: auto;
+      margin: 10mm 13mm;
+    }
+
+    @media print {
+      :root,
+      [data-theme="dark"] {
+        --bg-page: #FFFFFF !important;
+        --bg-card: #F5F5F7 !important;
+        --bg-card-subtle: #EAEAEF !important;
+        --bg-matte-well: #E8E8ED !important;
+        --bg-pill: #E4E4E9 !important;
+        --bg-pill-active: #18181B !important;
+        --text-pill-active: #FFFFFF !important;
+        --ink-primary: #18181B !important;
+        --ink-secondary: #3F3F46 !important;
+        --ink-muted: #686870 !important;
+        --rule-subtle: #DCDCE2 !important;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html, body {
+        background: #FFFFFF !important;
+        color: #18181B !important;
+        font-size: 10pt;
+      }
+
+      .top-nav,
+      .filter-tabs,
+      .lightbox {
+        display: none !important;
+      }
+
+      .page-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .section-block {
+        margin-bottom: 0 !important;
+      }
+
+      .section-title {
+        font-size: 15pt !important;
+        margin-bottom: 7pt !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+
+      /* PAGE 1: Cover Intro */
+      #about {
+        break-after: page !important;
+        page-break-after: always !important;
+        padding-top: 6pt;
+      }
+
+      .profile-header {
+        margin-bottom: 16pt !important;
+      }
+
+      .profile-name {
+        font-size: 28pt !important;
+      }
+
+      .profile-title {
+        font-size: 12pt !important;
+        margin-bottom: 8pt !important;
+      }
+
+      .profile-contact {
+        font-size: 9.2pt !important;
+      }
+
+      .profile-portrait {
+        width: 118px !important;
+        height: 148px !important;
+      }
+
+      .intro-card {
+        padding: 20pt 22pt !important;
+        margin-bottom: 0 !important;
+      }
+
+      .intro-prose p {
+        font-size: 10.2pt !important;
+        line-height: 1.62 !important;
+        margin-bottom: 10pt !important;
+      }
+
+      .intro-prose p.intro-lead {
+        font-size: 11.8pt !important;
+        line-height: 1.52 !important;
+        margin-bottom: 12pt !important;
+      }
+
+      /* PAGES 2 & 3: Work Experience (2 studios per page on both Letter & A4) */
+      #experience {
+        break-after: page !important;
+        page-break-after: always !important;
+      }
+
+      .experience-stack {
+        gap: 9pt !important;
+      }
+
+      .studio-card {
+        padding: 10pt 14pt !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* Break after 2nd studio (The SPA Studios) so Netflix & StoryBots start on Page 3 */
+      .studio-card:nth-child(2) {
+        break-after: page !important;
+        page-break-after: always !important;
+      }
+
+      .studio-header {
+        margin-bottom: 6pt !important;
+      }
+
+      .studio-logo {
+        width: 72px !important;
+        height: 40px !important;
+        padding: 3pt 5pt !important;
+      }
+
+      .studio-title-block h3 {
+        font-size: 12.5pt !important;
+      }
+
+      .studio-submeta {
+        font-size: 8.2pt !important;
+        margin-top: 1pt !important;
+      }
+
+      .studio-role-pill {
+        font-size: 7.8pt !important;
+        padding: 2.5pt 7.5pt !important;
+      }
+
+      .studio-details {
+        margin-bottom: 7pt !important;
+        padding-bottom: 6pt !important;
+        gap: 4pt 12pt !important;
+      }
+
+      .detail-group-label {
+        font-size: 6.8pt !important;
+        margin-bottom: 2pt !important;
+      }
+
+      .detail-list {
+        font-size: 8.2pt !important;
+        gap: 1pt !important;
+      }
+
+      .studio-content-grid {
+        grid-template-columns: 1.55fr 0.78fr !important;
+        gap: 12pt !important;
+      }
+
+      .studio-Description p {
+        font-size: 8.3pt !important;
+        line-height: 1.41 !important;
+        margin-bottom: 5pt !important;
+      }
+
+      .matte-well {
+        padding: 4px !important;
+      }
+
+      .art-gallery-fBP .art-poster img {
+        max-height: 145px !important;
+      }
+
+      .art-gallery-fBP .art-stack .art-thumb img {
+        max-height: 54px !important;
+      }
+
+      /* PAGE 4: Educator Experience (2x3 Grid on 1 Page) */
+      #educator {
+        break-after: page !important;
+        page-break-after: always !important;
+      }
+
+      .educator-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 9pt !important;
+      }
+
+      .educator-card {
+        padding: 10pt 12pt !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .educator-header {
+        margin-bottom: 5pt !important;
+      }
+
+      .educator-title-group h3 {
+        font-size: 11.2pt !important;
+      }
+
+      .educator-period,
+      .educator-role {
+        font-size: 7.8pt !important;
+      }
+
+      .educator-badge {
+        width: 64px !important;
+        height: 40px !important;
+      }
+
+      .educator-description {
+        font-size: 8.2pt !important;
+        line-height: 1.4 !important;
+        margin-bottom: 6pt !important;
+      }
+
+      .educator-modules {
+        padding-top: 5pt !important;
+        font-size: 7.6pt !important;
+      }
+
+      /* PAGE 5: Freelance Experience (All 21 Studios Visible) */
+      #freelance {
+        break-after: page !important;
+        page-break-after: always !important;
+      }
+
+      .freelance-card {
+        padding: 13pt 15pt !important;
+      }
+
+      .freelance-grid {
+        column-count: 3 !important;
+        column-gap: 15pt !important;
+      }
+
+      .freelance-studio,
+      .freelance-studio.is-hidden {
+        display: block !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 7.5pt !important;
+        padding-bottom: 5.5pt !important;
+      }
+
+      .freelance-projects li,
+      .freelance-projects li.is-hidden {
+        display: flex !important;
+        font-size: 7.5pt !important;
+        line-height: 1.3 !important;
+      }
+
+      .freelance-studio h3 {
+        font-size: 9.8pt !important;
+      }
+
+      .freelance-role {
+        font-size: 7.3pt !important;
+        margin-bottom: 2.5pt !important;
+      }
+
+      /* FINAL PAGE: Awards & Education */
+      .awards-card {
+        padding: 14pt 16pt !important;
+        margin-bottom: 16pt !important;
+        break-inside: avoid !important;
+      }
+
+      .clean-table td {
+        padding: 6.5pt 8pt 6.5pt 0 !important;
+        font-size: 8.6pt !important;
+      }
+
+      .education-card {
+        padding: 12pt 16pt !important;
+        break-inside: avoid !important;
+      }
+
+      .edu-horizontal-grid {
+        grid-template-columns: 1.3fr 1.4fr 0.6fr !important;
+      }
+
+      .page-footer {
+        margin-top: 18pt !important;
+        font-size: 8pt !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WHISPER-QUIET STICKY HEADER -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <nav class="nav-links" aria-label="Section Navigation">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#educator">Educator</a>
+        <a href="#freelance">Freelance</a>
+        <a href="#awards">Awards &amp; Education</a>
+      </nav>
+      <div class="nav-utilities">
+        <button type="button" class="icon-btn" id="themeBtn" title="Toggle Dark Mode">
+          <span id="themeIcon">◐</span>
+          <span id="themeText">Dark Mode</span>
+        </button>
+        <button type="button" class="icon-btn" onclick="window.print()" title="Print or Save PDF (A4 &amp; Letter ready)">
+          ⎙ Print / PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- ==========================================
+         PROFILE HEADER & INTRO
+         ========================================== -->
+    <section id="about">
+      <div class="profile-header">
+        <div class="profile-text">
+          <h1 class="profile-name">Christopher Barischoff</h1>
+          <p class="profile-title">Creative Supervisor</p>
+          <div class="profile-contact">
+            <a href="mailto:chrisbarischoff@gmail.com">chrisbarischoff@gmail.com</a>
+            <span class="contact-sep">·</span>
+            <span><a href="tel:+61416305355">+61 416 305 355</a> <span class="region-tag">(AU)</span></span>
+            <span class="contact-sep">·</span>
+            <span><a href="tel:+18185216652">+1 818 521 6652</a> <span class="region-tag">(US)</span></span>
+            <span class="contact-sep">·</span>
+            <a href="https://fiat-lux.co" target="_blank" rel="noopener">fiat-lux.co</a>
+          </div>
+        </div>
+
+        <div class="profile-portrait-matte">
+          <div class="profile-portrait" onclick="openLightbox('images/image5.jpg', 'Christopher Barischoff')">
+            <img src="images/image5.jpg" alt="Christopher Barischoff" />
+          </div>
+        </div>
+      </div>
+
+      <article class="intro-card">
+        <div class="intro-prose">
+          <p class="intro-lead">
+            As a creative supervisor who has worked in animation and advertising since 2008, I’ve spent my career crafting Academy Award-winning <em>hybrid animation</em> projects that have spanned traditional hand-drawn, 3D computer graphics, stop-motion, and live-action puppetry.
+          </p>
+          <p>
+            Because I am a seasoned supervisor, I have fluency in the logistics of animation production, including planning workflows, bidding sequences, scheduling, casting shots, and managing creative teams. I am able to discern the signal from the noise, and make production-friendly creative decisions with practical methodologies in mind. Because of my deep understanding of animation software and techniques, directing through demonstration is second nature to me.
+          </p>
+          <p>
+            An artist at heart, I was trained in traditional fine arts skills. My eye for color, composition, and aesthetic tone helps me steer the visual style to help drive the narrative. I rely on my team members and their individual expertise to get the best possible creative result.
+          </p>
+          <p>
+            Having spent years as a professor for animation courses, teaching comes naturally to me. I rely on this experience to ensure my teams are clear on creative prompts and methodologies. With my expertise in communication, I’m able to explain processes at varying levels of complexity, and to listen carefully to concerns or needs from team members, while giving clear and honest feedback about what is possible. I firmly believe that encouragement and a sense of ownership are the greatest tools to inspire a team to deliver their best possible work, and I work hard to ensure every member feels welcomed and included in the process.
+          </p>
+
+          <div class="intro-footer">
+            <p class="seeking-roles">
+              Interested in my next creative management role: <strong>Visual Effects Supervisor</strong>, <strong>Stylization Supervisor</strong>, or <strong>Creative Director</strong>.
+            </p>
+            <span class="signoff">Please inquire with any questions.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ==========================================
+         WORK EXPERIENCE
+         ========================================== -->
+    <section class="section-block" id="experience">
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="experience-stack">
+
+        <!-- 1. Flying Bark Productions -->
+        <article class="studio-card">
+          <div class="studio-header">
+            <div class="studio-brand">
+              <div class="studio-logo">
+                <img src="images/image17.png" alt="Flying Bark Productions" />
+              </div>
+              <div class="studio-title-block">
+                <h3>Flying Bark Productions</h3>
+                <p class="studio-submeta">Sydney, Australia &nbsp;·&nbsp; February 2023 – Present</p>
+              </div>
+            </div>
+            <span class="studio-role-pill">Computer Graphics Supervisor</span>
+          </div>
+
+          <div class="studio-details">
+            <div>
+              <span class="detail-group-label">Projects</span>
+              <ul class="detail-list">
+                <li><strong>Avatar Aang: The Last Airbender</strong> <span class="format-tag">(2D/3D Hybrid · Feature)</span></li>
+                <li><strong>Stranger Things: Tales From ’85</strong> <span class="format-tag">(3D Hybrid · Episodic)</span></li>
+                <li><strong>Ghostbusters: Night Shift</strong> <span class="format-tag">(3D · Episodic)</span></li>
+              </ul>
+            </div>
+            <div>
+              <span class="detail-group-label">Recognition</span>
+              <ul class="detail-list">
+                <li><strong>SIGGRAPH 2026 Talk</strong> — “Avatar Aang: The Last Airbender: Hybrid Stylization”</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="studio-content-grid">
+            <div class="studio-Description">
+              <p>
+                I worked with Flying Bark Productions on the <em>Avatar Aang: The Last Airbender</em> feature film. I set up the workflow for the complex 2D/3D hybrid animation style. I worked with the Art teams at Avatar Studios, as well as the Director of Animation at Flying Bark, to come up with methodologies that fit the project’s style while maintaining the scope and budget. I thought of outside-the-box techniques that would allow us to achieve a handmade look for the film, but in a way that is production-friendly. I led the CG Leadership, creatively reviewed all shots and assets, and provided support for their teams to be as happy and effective as possible. I informed the Avatar team of any technical and budgetary hurdles, and offered solutions that fit the show’s scope.
+              </p>
+              <p>
+                For <em>Stranger Things</em> and <em>Ghostbusters</em>, I worked with the Showrunners, VFX Supervisors, Producers, and Heads of Department to make back-end creative decisions, deliver on technical requirements, and solve any issues that came up before they became big problems. I helped to hire and onboard new artists, bid shots and sequences, and managed CG teams. I creatively reviewed shots and assets before they went to the showrunner, and helped the teams understand notes and feedback from the showrunners.
+              </p>
+            </div>
+
+            <div class="studio-art-col">
+              <div class="art-gallery-fBP">
+                <div class="matte-well art-poster-well">
+                  <div class="art-poster" onclick="openLightbox('images/image1.jpg', 'Avatar Aang: The Last Airbender (2D/3D Hybrid Feature)')">
+                    <img src="images/image1.jpg" alt="Avatar Aang: The Last Airbender" />
+                  </div>
+                </div>
+                <div class="art-stack">
+                  <div class="matte-well">
+                    <div class="art-thumb" onclick="openLightbox('images/image9.png', 'Stranger Things: Tales From ’85 (3D Hybrid Episodic)')">
+                      <img src="images/image9.png" alt="Stranger Things: Tales From ’85" />
+                    </div>
+                  </div>
+                  <div class="matte-well">
+                    <div class="art-thumb" onclick="openLightbox('images/image2.jpg', 'Ghostbusters: Night Shift (3D Episodic)')">
+                      <img src="images/image2.jpg" alt="Ghostbusters: Night Shift" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. The SPA Studios -->
+        <article class="studio-card">
+          <div class="studio-header">
+            <div class="studio-brand">
+              <div class="studio-logo">
+                <img src="images/image14.png" alt="The SPA Studios" />
+              </div>
+              <div class="studio-title-block">
+                <h3>The SPA Studios</h3>
+                <p class="studio-submeta">Madrid, Spain &nbsp;·&nbsp; November 2022 – January 2023</p>
+              </div>
+            </div>
+            <span class="studio-role-pill">Computer Graphics Supervisor</span>
+          </div>
+
+          <div class="studio-details">
+            <div>
+              <span class="detail-group-label">Project</span>
+              <ul class="detail-list">
+                <li><strong>Ember</strong> <span class="format-tag">(2D Hybrid · Feature, Canceled)</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="studio-content-grid">
+            <div class="studio-Description">
+              <p>
+                As the CG Supervisor for <em>Ember</em> at The SPA Studios, I collaborated with the CTO and production team to oversee and manage the CG department, including staffing and workload distribution. I also developed and implemented efficient workflows that supported the 2D animation and art teams and worked with the art direction to ensure that the film’s vision was being met. In addition, I acted as a liaison between the team and external freelancers and vendors to manage outsourced work, and continuously checked in with other departments to assess and document CG needs. I also played a key role in improving and optimizing our custom Blender pipeline by working closely with the Pipeline team to request and test new tools and features.
+              </p>
+            </div>
+
+            <div class="studio-art-col">
+              <div class="matte-well">
+                <div class="art-thumb" onclick="openLightbox('images/image3.png', 'Ember — The SPA Studios')">
+                  <img src="images/image3.png" alt="Ember artwork" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Netflix Animation Studios -->
+        <article class="studio-card">
+          <div class="studio-header">
+            <div class="studio-brand">
+              <div class="studio-logo">
+                <img src="images/image6.png" alt="Netflix Animation Studios" />
+              </div>
+              <div class="studio-title-block">
+                <h3>Netflix Animation Studios</h3>
+                <p class="studio-submeta">Hollywood, CA, USA &nbsp;·&nbsp; May 2020 – August 2022</p>
+              </div>
+            </div>
+            <span class="studio-role-pill">Computer Graphics Supervisor</span>
+          </div>
+
+          <div class="studio-details">
+            <div>
+              <span class="detail-group-label">Project</span>
+              <ul class="detail-list">
+                <li><strong>Ghee Happy</strong> by Sanjay Patel <span class="format-tag">(3D Hybrid · Episodic)</span></li>
+              </ul>
+            </div>
+            <div>
+              <span class="detail-group-label">Recognition</span>
+              <ul class="detail-list">
+                <li><strong>Annie Awards 2023</strong> — Best Animated Television/Media Production for Preschool Children</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="studio-content-grid">
+            <div class="studio-Description">
+              <p>
+                At Netflix Animation I was the CG Supervisor for <em>Ghee Happy</em>. This is a children’s episodic show produced in partnership with a high-quality vendor studio based in Paris. I worked with the creator and producers to plan a CG style that was both feasible and of high quality. I helped manage our internal R&amp;D, advised the story and design teams on technical limitations and creative choices as they pertained to CG viability, reviewed designs and assets between our local team and vendor studio, helped manage the show’s CG resources when budgeting assets and shots, and helped find creative solutions to artistic requests. I wrote out guides and decks to help set standards for our internal teams and vendor studios, and to make sure we were all on the same page. I also did hands-on R&amp;D and finishing for key assets and shots to fulfill the creator’s intended look and feel. I was the main liaison between Netflix and our partner studio, and I sat with the creator and colorist in every color session to tune the final look of our episodes before they went to air.
+              </p>
+            </div>
+
+            <div class="studio-art-col">
+              <div class="matte-well">
+                <div class="art-thumb light-surface" onclick="openLightbox('images/image15.png', 'Ghee Happy by Sanjay Patel — Netflix Animation')">
+                  <img src="images/image15.png" alt="Ghee Happy key art" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. StoryBots, Inc. -->
+        <article class="studio-card">
+          <div class="studio-header">
+            <div class="studio-brand">
+              <div class="studio-logo">
+                <img src="images/image12.png" alt="StoryBots, Inc." />
+              </div>
+              <div class="studio-title-block">
+                <h3>StoryBots, Inc.</h3>
+                <p class="studio-submeta">Los Angeles, CA, USA &nbsp;·&nbsp; April 2017 – July 2019</p>
+              </div>
+            </div>
+            <span class="studio-role-pill">Lighting/Compositing Supervisor</span>
+          </div>
+
+          <div class="studio-details">
+            <div>
+              <span class="detail-group-label">Projects</span>
+              <ul class="detail-list">
+                <li><strong>A StoryBots Christmas</strong> <span class="format-tag">(Hybrid Special)</span></li>
+                <li><strong>Ask the StoryBots Season 2</strong> <span class="format-tag">(Hybrid Episodic)</span></li>
+                <li><strong>Ask the StoryBots Season 3</strong> <span class="format-tag">(Hybrid Episodic · 2D, 3D, Stop-Motion, Puppets)</span></li>
+              </ul>
+            </div>
+            <div>
+              <span class="detail-group-label">Recognition</span>
+              <ul class="detail-list">
+                <li><strong>Daytime Emmy Award 2018</strong> — Outstanding Special Class Animated Program</li>
+                <li><strong>Daytime Emmy Award 2019</strong> — Outstanding Children’s Animated Series</li>
+                <li><strong>Daytime Emmy Award 2020</strong> — Outstanding Preschool Children’s Animated Series</li>
+                <li><strong>Annie Award 2020</strong> — Best Animated Television Production for Preschool Children</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="studio-content-grid">
+            <div class="studio-Description">
+              <p>
+                At StoryBots I was the Lighting/Lookdev Supervisor on <em>Ask the StoryBots</em> on Netflix (Seasons 2 and 3, and <em>A StoryBots Christmas</em>). Apart from setting an example in terms of workload and quality with hands-on lighting of shots, it was my job to make sure our renders made it out on time and up to the quality level that our budget allowed. I oversaw the team, reviewing all content before it made it to the director. I solved CG problems that my team (or other CG teams) had, and I worked to maintain our CG pipeline and keep it running smoothly and improving in features. I lookdeved new assets, created master light rigs and template files, and cast team members to shots and tasks. I worked with production to keep the budgets and schedules working well, and to avoid any hiccups or bottlenecks.
+              </p>
+            </div>
+
+            <div class="studio-art-col">
+              <div class="matte-well">
+                <div class="art-thumb light-surface" onclick="openLightbox('images/image11.png', 'Ask the StoryBots — StoryBots, Inc.')">
+                  <img src="images/image11.png" alt="StoryBots characters" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EDUCATOR EXPERIENCE
+         ========================================== -->
+    <section class="section-block" id="educator">
+      <h2 class="section-title">Educator Experience</h2>
+
+      <div class="educator-grid">
+
+        <!-- SIGGRAPH -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>SIGGRAPH</h3>
+                <p class="educator-period">2026</p>
+                <p class="educator-role">Conference Talk, Roundtable, Technical Paper</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image4.png" alt="ACM SIGGRAPH" />
+              </div>
+            </div>
+            <p class="educator-description">
+              At SIGGRAPH I published my technical paper about the stylization techniques used for <em>Avatar Aang: The Last Airbender</em> to the ACM database, and gave a 20-minute talk on the same topic at the conference in one of the lecture halls. I also hosted a Roundtable Discussion about the use of AI in Animation.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> “Avatar Aang: The Last Airbender: Hybrid Stylization”, “Slop or Craft? Human Artistry, Automation, and the Future of Animation Integrity”
+          </div>
+        </article>
+
+        <!-- Rise Up Animation -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>Rise Up Animation</h3>
+                <p class="educator-period">2020 – 2022</p>
+                <p class="educator-role">Industry Mentor</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image13.png" alt="Rise Up Animation" />
+              </div>
+            </div>
+            <p class="educator-description">
+              With Rise Up Animation’s Mentorship Program, I met individual artists who belonged to minority groups to offer them mentorship. I met in person and over video call (due to COVID restrictions) and answered industry questions, reviewed portfolios, discussed current projects and job opportunities, and helped them write compelling resumes.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> Portfolio Review, Q&amp;A, Industry Connections
+          </div>
+        </article>
+
+        <!-- Gnomon College -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>Gnomon College</h3>
+                <p class="educator-period">2018 – 2022</p>
+                <p class="educator-role">Lecturer, Workshop Author</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image7.png" alt="Gnomon School of Visual Effects" />
+              </div>
+            </div>
+            <p class="educator-description">
+              At Gnomon I was an adjunct professor for their certificate program. I taught second- and third-year students who already had an understanding of basic 3D how to light and render in a production environment. I created and updated course lesson plans and materials, conducted weekly lectures, and graded assignments. I also recorded workshops for The Gnomon Workshop lesson library.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> “Lighting and Rendering I”, “Lighting the CG Portrait”, “Substance Designer – Stop-Motion Felt Material”
+          </div>
+        </article>
+
+        <!-- Otis College -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>Otis College</h3>
+                <p class="educator-period">2009 – 2011</p>
+                <p class="educator-role">Guest Lecturer and Workshop</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image16.png" alt="Otis College of Art and Design" />
+              </div>
+            </div>
+            <p class="educator-description">
+              At Otis College I was a returning guest lecturer, teaching relevant topics to 3rd- and 4th-year students. Lectures lasted three hours and covered important industry-related techniques and assessments that enriched the career preparedness of the students.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> “Outdoor Lighting for VFX”, “Optimizing Render Settings”, “Rendering &amp; Compositing in Linear Color Space”
+          </div>
+        </article>
+
+        <!-- Exceptional Minds -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>Exceptional Minds</h3>
+                <p class="educator-period">2021</p>
+                <p class="educator-role">Industry Mentor</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image10.png" alt="Exceptional Minds" />
+              </div>
+            </div>
+            <p class="educator-description">
+              At Exceptional Minds, I met with a class of neurodiverse art students on a regular basis (over video call, due to COVID restrictions at the time). During the first half of each session, I taught them industry techniques based on a lesson plan I created. The second half consisted of portfolio reviews and a Q&amp;A session on industry-related topics. This continued bi-weekly for three months.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> Lecture, Portfolio Review, Q&amp;A
+          </div>
+        </article>
+
+        <!-- Agoura High School -->
+        <article class="educator-card">
+          <div>
+            <div class="educator-header">
+              <div class="educator-title-group">
+                <h3>Agoura High School</h3>
+                <p class="educator-period">2008 – 2010</p>
+                <p class="educator-role">Guest Lecturer</p>
+              </div>
+              <div class="educator-badge">
+                <img src="images/image8.png" alt="Agoura High School" />
+              </div>
+            </div>
+            <p class="educator-description">
+              At Agoura High School, I was a returning guest lecturer who led discussions in arts classes about attending an art college, and what the implications are for continuing an arts education. We covered topics such as art disciplines and areas of study, career paths, portfolio requirements, and comparisons to traditional colleges. The goal was to be as informative as possible, give the students a good overall view of what an art college can offer them, and invite them to consider what their plans for college were in relation to their creative endeavors.
+            </p>
+          </div>
+          <div class="educator-modules">
+            <strong>Modules:</strong> College Lecture and Portfolio Review
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FREELANCE EXPERIENCE
+         ========================================== -->
+    <section class="section-block" id="freelance">
+      <h2 class="section-title">Freelance Experience</h2>
+
+      <div class="freelance-card">
+        <div class="filter-tabs" role="toolbar" aria-label="Filter Freelance Projects by Category">
+          <button type="button" class="filter-tab active" data-filter="all">
+            All <span class="tab-count" id="count-all"></span>
+          </button>
+          <button type="button" class="filter-tab" data-filter="feature">
+            Feature <span class="tab-count" id="count-feature"></span>
+          </button>
+          <button type="button" class="filter-tab" data-filter="episodic">
+            Episodic <span class="tab-count" id="count-episodic"></span>
+          </button>
+          <button type="button" class="filter-tab" data-filter="advertising">
+            Advertising <span class="tab-count" id="count-advertising"></span>
+          </button>
+          <button type="button" class="filter-tab" data-filter="special">
+            Interactive &amp; Special Media <span class="tab-count" id="count-special"></span>
+          </button>
+        </div>
+
+        <div class="freelance-grid" id="freelanceContainer">
+
+          <!-- Framestore -->
+          <div class="freelance-studio">
+            <h3>Framestore</h3>
+            <p class="freelance-role">Lighting, Generalist</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Intel Smithsonian VR</span> <span class="proj-type">(Interactive VR)</span></span>
+                <span class="proj-year">2017</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">BYD</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2017</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">GMC EV</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Disney Parks: Avengers Campus</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2020</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Psyop -->
+          <div class="freelance-studio">
+            <h3>Psyop</h3>
+            <p class="freelance-role">Lighting Lead, Generalist</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Apple iPad</span> <span class="proj-type">(Interactive VR)</span></span>
+                <span class="proj-year">2015</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Cricket Wireless</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2015</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Rise of Tyrants</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2015</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Clash of Clans</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2015</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Blur Studio -->
+          <div class="freelance-studio">
+            <h3>Blur Studio</h3>
+            <p class="freelance-role">Scene Assembler</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Dragon Age Origins: Sacred Ashes</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Pirates of the Caribbean – Unreleased</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CoSA VFX -->
+          <div class="freelance-studio">
+            <h3>CoSA VFX</h3>
+            <p class="freelance-role">Lighting, CG Lead</p>
+            <ul class="freelance-projects">
+              <li data-type="episodic">
+                <span><span class="proj-name">Minority Report</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="advertising episodic">
+                <span><span class="proj-name">Gotham</span> <span class="proj-type">(Print Ad, Episodic)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Scholar -->
+          <div class="freelance-studio">
+            <h3>Scholar</h3>
+            <p class="freelance-role">Lighting, Lookdev</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">GMC</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">San Manuel Casino</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Zoic Studios -->
+          <div class="freelance-studio">
+            <h3>Zoic Studios</h3>
+            <p class="freelance-role">Lighting, Lighting Lead, Generalist</p>
+            <ul class="freelance-projects">
+              <li data-type="feature">
+                <span><span class="proj-name">Priest</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+              <li data-type="feature">
+                <span><span class="proj-name">Burlesque</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+              <li data-type="feature">
+                <span><span class="proj-name">Premium Rush</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Once Upon a Time</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Fringe</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Pan Am</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Wonder Woman</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Castle</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+              <li data-type="episodic">
+                <span><span class="proj-name">Once Upon a Time in Wonderland</span> <span class="proj-type">(Episodic)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Morning Star</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">The X Factor</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Syngenta</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">St. Ives</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pixel Liberation Front -->
+          <div class="freelance-studio">
+            <h3>Pixel Liberation Front</h3>
+            <p class="freelance-role">Lighting, Compositing, Tracking, Roto</p>
+            <ul class="freelance-projects">
+              <li data-type="feature">
+                <span><span class="proj-name">The Box</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2008</span>
+              </li>
+              <li data-type="feature">
+                <span><span class="proj-name">Terminator Salvation</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2008–2009</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Duck Studios -->
+          <div class="freelance-studio">
+            <h3>Duck Studios</h3>
+            <p class="freelance-role">Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Pop-Tarts</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Cox Communications</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Brand New School -->
+          <div class="freelance-studio">
+            <h3>Brand New School</h3>
+            <p class="freelance-role">CG Supervision, Lookdev/Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Jägermeister</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Google Stadia</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Walmart Smart Style</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Starbucks</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Waymo</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Adobe</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2019</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Google Fiber</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Alamo</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Georgia Lottery</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Blind -->
+          <div class="freelance-studio">
+            <h3>Blind</h3>
+            <p class="freelance-role">Generalist, Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Cox Cable</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Asgrow</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- The Mill -->
+          <div class="freelance-studio">
+            <h3>The Mill</h3>
+            <p class="freelance-role">Modeling, Lookdev</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Gatorade: Lightning Bolt</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2013</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prologue -->
+          <div class="freelance-studio">
+            <h3>Prologue</h3>
+            <p class="freelance-role">Lookdev, Lighting, Comp</p>
+            <ul class="freelance-projects">
+              <li data-type="feature">
+                <span><span class="proj-name">The Loft</span> <span class="proj-type">(Feature)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- The Core -->
+          <div class="freelance-studio">
+            <h3>The Core</h3>
+            <p class="freelance-role">Generalist, Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">LEGO Star Wars</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">LEGO FIFA World Cup</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Yahoo!</span> <span class="proj-type">(Times Square Walgreens Display)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Bugatti Veyron</span> <span class="proj-type">(Spec Piece)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Royale -->
+          <div class="freelance-studio">
+            <h3>Royale</h3>
+            <p class="freelance-role">Generalist</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Nike+</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Roger -->
+          <div class="freelance-studio">
+            <h3>Roger</h3>
+            <p class="freelance-role">Generalist, Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Utah Transit Authority</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2012</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Manwich</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- AT&T -->
+          <div class="freelance-studio">
+            <h3>AT&amp;T</h3>
+            <p class="freelance-role">Modeling, Texturing, Lookdev</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">AT&amp;T Soccer</span> <span class="proj-type">(Logo Design)</span></span>
+                <span class="proj-year">2017</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Baked FX -->
+          <div class="freelance-studio">
+            <h3>Baked FX</h3>
+            <p class="freelance-role">CG Lead, Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Nestlé</span> <span class="proj-type">(Print Ads)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Samsung</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Beats Audio</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">AC/DC Tour</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">ANDY</span> <span class="proj-type">(Web Spot)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Solid LA -->
+          <div class="freelance-studio">
+            <h3>Solid LA</h3>
+            <p class="freelance-role">Lighting, Lookdev, Generalist</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Mass Effect III</span> <span class="proj-type">(Game Cinematic)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Mastercard</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2011</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Synchrony Studios -->
+          <div class="freelance-studio">
+            <h3>Synchrony Studios</h3>
+            <p class="freelance-role">Lighting Lead</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Nissan Rogue / Star Wars: Rogue One</span> <span class="proj-type">(Press/Show Presentation)</span></span>
+                <span class="proj-year">2016</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Neither Field / Production Club -->
+          <div class="freelance-studio">
+            <h3>Neither Field / Production Club</h3>
+            <p class="freelance-role">Senior Lighting, Lookdev</p>
+            <ul class="freelance-projects">
+              <li data-type="special">
+                <span><span class="proj-name">Skrillex</span> <span class="proj-type">(Concert Visuals)</span></span>
+                <span class="proj-year">2013–2014</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Dyro</span> <span class="proj-type">(Concert Visuals)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Alesso UMF 2014</span> <span class="proj-type">(Concert Visuals)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+              <li data-type="special">
+                <span><span class="proj-name">Kings of Leon 2014 Tour</span> <span class="proj-type">(Concert Visuals)</span></span>
+                <span class="proj-year">2014</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Frame DK -->
+          <div class="freelance-studio">
+            <h3>Frame DK</h3>
+            <p class="freelance-role">Lookdev, Lighting</p>
+            <ul class="freelance-projects">
+              <li data-type="advertising">
+                <span><span class="proj-name">Adidas</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Ford</span> <span class="proj-type">(Tradeshow Ad)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">Lincoln</span> <span class="proj-type">(Tradeshow Ad)</span></span>
+                <span class="proj-year">2009</span>
+              </li>
+              <li data-type="advertising">
+                <span><span class="proj-name">TDC Communications</span> <span class="proj-type">(Ad)</span></span>
+                <span class="proj-year">2010</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         AWARDS & RECOGNITION + EDUCATION
+         ========================================== -->
+    <section class="section-block" id="awards">
+      <h2 class="section-title">Awards &amp; Recognition</h2>
+
+      <div class="awards-card">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Award</th>
+              <th>Result</th>
+              <th style="text-align: right;">Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-project">A StoryBots Christmas</td>
+              <td>Daytime Emmy Award — Outstanding Special Class Animated Program</td>
+              <td class="col-result"><span class="status-pill status-won">Won</span></td>
+              <td class="col-year">2018</td>
+            </tr>
+            <tr>
+              <td class="col-project">A StoryBots Christmas</td>
+              <td>Annie Award — Best Animated Special Production</td>
+              <td class="col-result"><span class="status-pill status-nom">Nominated</span></td>
+              <td class="col-year">2018</td>
+            </tr>
+            <tr>
+              <td class="col-project">Ask the StoryBots</td>
+              <td>Daytime Emmy Award — Outstanding Children’s Animated Series</td>
+              <td class="col-result"><span class="status-pill status-won">Won</span></td>
+              <td class="col-year">2019</td>
+            </tr>
+            <tr>
+              <td class="col-project">Ask the StoryBots</td>
+              <td>Annie Award — Best Animated Television/Broadcast Production for Preschool Children</td>
+              <td class="col-result"><span class="status-pill status-nom">Nominated</span></td>
+              <td class="col-year">2019</td>
+            </tr>
+            <tr>
+              <td class="col-project">Ask the StoryBots</td>
+              <td>Daytime Emmy Award — Outstanding Preschool Children’s Animated Series</td>
+              <td class="col-result"><span class="status-pill status-won">Won</span></td>
+              <td class="col-year">2020</td>
+            </tr>
+            <tr>
+              <td class="col-project">Ask the StoryBots</td>
+              <td>Annie Award — Best Animated Television/Broadcast Production for Preschool Children</td>
+              <td class="col-result"><span class="status-pill status-won">Won</span></td>
+              <td class="col-year">2020</td>
+            </tr>
+            <tr>
+              <td class="col-project">Ghee Happy</td>
+              <td>Annie Award — Best Animated Television/Media Production for Preschool Children</td>
+              <td class="col-result"><span class="status-pill status-won">Won</span></td>
+              <td class="col-year">2023</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="section-title">Education</h2>
+
+      <div class="education-card">
+        <div class="otis-logo-wrap">
+          <img src="images/image16.png" alt="Otis College of Art and Design" />
+        </div>
+        <div class="edu-horizontal-grid">
+          <div>
+            <span class="edu-item-label">University</span>
+            <p class="edu-item-val">Otis College of Art and Design</p>
+          </div>
+          <div>
+            <span class="edu-item-label">Diploma</span>
+            <p class="edu-item-val-sans">Bachelor of Fine Arts with Honors</p>
+          </div>
+          <div>
+            <span class="edu-item-label">Years</span>
+            <p class="edu-item-val-sans">2005 – 2009</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Christopher Barischoff</span>
+      <span>
+        <a href="mailto:chrisbarischoff@gmail.com">chrisbarischoff@gmail.com</a>
+        &nbsp;·&nbsp; +61 416 305 355 (AU)
+        &nbsp;·&nbsp; +1 818 521 6652 (US)
+        &nbsp;·&nbsp; <a href="https://fiat-lux.co" target="_blank" rel="noopener">fiat-lux.co</a>
+      </span>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX FOR FULL ARTWORK VIEW -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="Enlarged artwork" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    // Dark Mode Toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const themeText = document.getElementById('themeText');
+    const themeIcon = document.getElementById('themeIcon');
+
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        themeText.textContent = 'Dark Mode';
+        themeIcon.textContent = '◐';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeText.textContent = 'Light Mode';
+        themeIcon.textContent = '☀';
+      }
+    });
+
+    // Project-Level Freelance Filtering + Studio Visibility
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const studioBlocks = document.querySelectorAll('.freelance-studio');
+    const allProjectItems = document.querySelectorAll('.freelance-projects li');
+
+    // Compute and display accurate counts per category
+    const categories = ['all', 'feature', 'episodic', 'advertising', 'special'];
+    categories.forEach((cat) => {
+      const countEl = document.getElementById(`count-${cat}`);
+      if (!countEl) return;
+      if (cat === 'all') {
+        countEl.textContent = `(${allProjectItems.length})`;
+      } else {
+        let count = 0;
+        allProjectItems.forEach((li) => {
+          const types = (li.getAttribute('data-type') || '').split(/\s+/);
+          if (types.includes(cat)) count++;
+        });
+        countEl.textContent = `(${count})`;
+      }
+    });
+
+    filterTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const selected = tab.getAttribute('data-filter');
+
+        studioBlocks.forEach((studio) => {
+          const items = studio.querySelectorAll('.freelance-projects li');
+          let visibleCount = 0;
+
+          items.forEach((li) => {
+            const types = (li.getAttribute('data-type') || '').split(/\s+/);
+            if (selected === 'all' || types.includes(selected)) {
+              li.classList.remove('is-hidden');
+              visibleCount++;
+            } else {
+              li.classList.add('is-hidden');
+            }
+          });
+
+          if (visibleCount > 0) {
+            studio.classList.remove('is-hidden');
+          } else {
+            studio.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+
+    // Lightbox Viewer
+    function openLightbox(src, caption) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxCaption').textContent = caption || '';
+      lb.classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
